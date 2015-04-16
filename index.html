@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>socket.io Chat</title>
+	<style>
+	#chat{
+		height: 300px;
+		max-height: 280px;
+		overflow-y: auto;
+	}
+	#contentWrap{
+		display: none;
+	}
+	#chatWrap{
+		float: left;
+		border: 1px #000 solid;
+	}
+	</style>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+	$(function(){
+		var socket = io.connect();
+		var chat = $("#chat");
+
+		$("#nickForm").submit(function(e){
+			e.preventDefault();
+			$("#nickView").html("<b>My nickName : " + $("#nickname").val() + "</b>");
+			socket.emit("new user", $("#nickname").val(), function(data){
+				if(data){
+					$("#nickWrap").hide();
+					$("#contentWrap").show();
+				}else{
+					$("#nickError").html("존재하는 닉네임입니다. 다른 닉을 써주세요!!");
+				}
+			});
+			$("#nickname").val("");
+		});
+
+		socket.on("usernames", function(data){
+			var output = "";
+			for(i=0; i<data.length; i++){
+				output += data[i] + "<br>";
+			}
+			$("#users").html(output);
+		});
+
+		var chat = $("#chat");
+		$("#sendForm").submit(function(e){
+			e.preventDefault();
+			socket.emit('send message', $("#message").val());
+			$("#message").val("");
+		});
+		socket.on("new message", function(data){
+			chat.append("<b>"+data.nick+"</b> : "+data.msg+"<br>");
+			chat.scrollTop(chat.prop("scrollHeight"));
+		});
+	});
+	</script>
+</head>
+<body>
+	<h1>socket.io Chat</h1>
+	<div id="nickWrap">
+		<p>Enter a usename: </p>
+		<p id="nickError"></p>
+		<form id="nickForm">
+			<input size="35" id="nickname">
+			<input type="submit" value="Connect">
+		</form>
+	</div>
+
+	<div id="contentWrap">
+		<div id="nickView"></div>
+		<div id="chatWrap">
+			<div id="chat"></div>
+			<form id="sendForm">
+				<input size="35" id="message">
+				<input type="submit" value="Send">
+			</form>
+		</div>
+		<div id="users"></div>
+	</div>
+</body>
+</html>
