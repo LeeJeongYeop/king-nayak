@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: '강미는 바보야!!!' });
+  res.render('index', { jeong: '잘생긴 정여비!!', kang: '바보는 깡미!!!' });
 });
 
 module.exports = router;
