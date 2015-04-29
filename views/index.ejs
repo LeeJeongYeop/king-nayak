@@ -82,12 +82,25 @@
 
 		<!-- list -->
 		<div class='mainList'>
-			<% for(len=docs.length, i=(len-1); item=docs[i], i>=(len-5); i--){ %>
-			<a href="/board/read/<%=item.num%>"><%=item.title%></a> &nbsp
-			<span class="mainListDate"><%=item.myregdate%></span>
-			<hr>
-			<pre><%-item.content%></pre>
-			<% }//for %>
+			<% 
+			len=docs.length;
+			if(len<5){
+				for(i=(len-1); item=docs[i], i>=0; i--){%>
+				<a href="/board/read/<%=item.num%>"><%=item.title%></a> &nbsp
+				<span class="mainListDate"><%=item.myregdate%></span>
+				<hr>
+				<pre><%-item.content%></pre>
+				<% }//for
+			}else{ 
+				%>
+				<% for(i=(len-1); item=docs[i], i>=(len-5); i--){ %>
+				<a href="/board/read/<%=item.num%>"><%=item.title%></a> &nbsp
+				<span class="mainListDate"><%=item.myregdate%></span>
+				<hr>
+				<pre><%-item.content%></pre>
+				<% }//for 
+			}//else 
+			%>
 		</div>
 
 		<!-- footer -->
