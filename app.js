@@ -12,6 +12,8 @@ var member = require('./routes/member');
 
 var session = require('express-session');
 
+var app = express();
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -68,6 +70,12 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+var http = require('http');
+app.set('port', 3000); //3000번 포트로 지정
+var server = http.createServer(app);
+server.listen(app.get('port'));
+console.log('================== Port-->'+app.get('port'));
 
 
 module.exports = app;
