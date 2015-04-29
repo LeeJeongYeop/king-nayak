@@ -56,5 +56,10 @@ app.use(function(err, req, res, next) {
   });
 });
 
+var http = require('http');
+app.set('port', 3000); //80번 포트로 지정
+var server = http.createServer(app);
+server.listen(app.get('port'));
+console.log('================== Port-->'+app.get('port'));
 
 module.exports = app;
