@@ -64,32 +64,11 @@
 		</div>
 		<hr>
 
-		<!-- introduce -->
-		<div class='about-me'>
-			<div class='row'>
-				<div class='col-md-3 col-lg-3 col-xs-4'>
-					<img class='img-rounded img-responsive pull-right' src='/img/mongoose.jpg' style='width:128px; height: auto;'>
-				</div>
-				<div class='col-md-9 col-lg-9 col-xs-8'>
-					<p><a href="http://blog.naver.com/kingwjdduq">Nayak</a>이는 누구나 들으면 '아~' 하는 유명한 개발자가 꿈 입니다.<br>주절 주절 주절<br><br>
-					</p>
-					<p>HTML, CSS, javascript, jQuery, Node.js, php를 참 좋아합니다.
-						<br>MongoDB와 Angular.js를 잘하고 싶습니다.
-					</p>
-				</div>
-			</div>
+		<!-- content -->
+		<div class="imsi" align="center">
+			<h1>프로젝트는 작업 중 입니다.</h1>
 		</div>
-
-		<!-- list -->
-		<div class='mainList'>
-			<% for(len=docs.length, i=(len-1); item=docs[i], i>=(len-5); i--){ %>
-			<a href="/board/read/<%=item.num%>"><%=item.title%></a> &nbsp
-			<span class="mainListDate"><%=item.myregdate%></span>
-			<hr>
-			<pre><%-item.content%></pre>
-			<% }//for %>
-		</div>
-
+		
 		<!-- footer -->
 		<hr>
 		<footer>

@@ -64,32 +64,26 @@
 		</div>
 		<hr>
 
-		<!-- introduce -->
-		<div class='about-me'>
-			<div class='row'>
-				<div class='col-md-3 col-lg-3 col-xs-4'>
-					<img class='img-rounded img-responsive pull-right' src='/img/mongoose.jpg' style='width:128px; height: auto;'>
-				</div>
-				<div class='col-md-9 col-lg-9 col-xs-8'>
-					<p><a href="http://blog.naver.com/kingwjdduq">Nayak</a>이는 누구나 들으면 '아~' 하는 유명한 개발자가 꿈 입니다.<br>주절 주절 주절<br><br>
-					</p>
-					<p>HTML, CSS, javascript, jQuery, Node.js, php를 참 좋아합니다.
-						<br>MongoDB와 Angular.js를 잘하고 싶습니다.
-					</p>
-				</div>
+		<!-- content -->
+		<div class="listTitle" style="margin-top: 30px">
+			<h3><strong><%=title%></strong></h3>
+		</div>
+		<div class="listBody">
+			<div class="list">
+				<ul>
+					<% for(len=docs.length, i=(len-1); i>=0, item=docs[i]; i--){ %>
+					<li><a href="/board/read/<%=item.num%>"><%=item.title%></a> &nbsp<%=item.myregdate%></li>
+					<% }//for %>
+				</ul>
 			</div>
 		</div>
-
-		<!-- list -->
-		<div class='mainList'>
-			<% for(len=docs.length, i=(len-1); item=docs[i], i>=(len-5); i--){ %>
-			<a href="/board/read/<%=item.num%>"><%=item.title%></a> &nbsp
-			<span class="mainListDate"><%=item.myregdate%></span>
-			<hr>
-			<pre><%-item.content%></pre>
-			<% }//for %>
+		<div class="subContent">
+			<h3><strong>Best Song</strong></h3>
+			<center>
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/_ogDymI9BKM" frameborder="0" allowfullscreen></iframe>
+			</center>
 		</div>
-
+		
 		<!-- footer -->
 		<hr>
 		<footer>
