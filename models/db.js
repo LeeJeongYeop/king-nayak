@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var uri = 'mongodb://localhost/blog';
+var uri = 'mongodb://<dbuser>:<dbpassword>@ds031822.mongolab.com:31822/heroku_app35929700/blog';
 var options = {
 	server: { poolSize : 100 }
 };
