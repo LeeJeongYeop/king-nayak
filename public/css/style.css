@@ -1,0 +1,51 @@
+.container{
+	max-width: 750px;
+}
+.header{
+	height: 40px;
+}
+.logo{
+	color: grey;
+}
+.about-me{
+	padding:30px 20px 30px 20px;
+	margin-top: 30px;
+	margin-bottom:30px;
+	background-color:#efefef;
+	border-width:1px;
+	border-color:#dddddd;
+	border-radius:10px;
+	box-shadow:none
+}
+.list a{
+	font-size: 1.3em;
+}
+.readTitle{
+	margin-top: 60px;
+	border-bottom: 1px solid #e5e5e5;
+}
+.readTitle #title{
+	color: black;
+	font-size: 2.5em;
+}
+.readTitle span{
+	color: grey;
+	font-size: 1.5em;
+}
+.readContent pre{
+	border: 0;
+	background-color: white;
+	font-size: 0.9em;	
+}
+.mainList pre{
+	border: 0;
+	background-color: white;
+	font-size: 0.9em;
+}
+.mainList a{
+	font-size: 2.6em;
+}
+.mainListDate{
+	color: grey;
+	font-size: 1.6em;
+}
