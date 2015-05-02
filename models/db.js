@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
-var uri = 'mongodb://nayak:1234@ds031822.mongolab.com:31822/heroku_app35929700/Blog';
+// var uri = 'mongodb://localhost/blog'; // local test
+var uri = 'mongodb://nayak:1234@ds031822.mongolab.com:31822/heroku_app35929700/Blog'; // heroku
 var options = {
 	server: { poolSize : 100 }
 };
